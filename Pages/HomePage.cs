@@ -23,5 +23,16 @@ namespace Feb21Testing.Pages
             timematerialButton.Click();
         }
 
+        public void NavigateToEmployee(IWebDriver driver)
+        {
+            Thread.Sleep(500);
+            IWebElement administrationButton = driver.FindElement(By.XPath("/html/body/div[3]/div/div/ul/li[5]/a"));
+            administrationButton.Click();
+
+            //Enable Empdloyee Button
+            Thread.Sleep(1000);
+            IWebElement employeeButton = driver.FindElement(By.XPath("/html/body/div[3]/div/div/ul/li[5]/ul/li[2]/a"));
+            employeeButton.Click();
+        }
     }
 }

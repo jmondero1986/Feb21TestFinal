@@ -73,7 +73,6 @@ namespace Feb21Testing.Pages
 
             var lastPage = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[1]"));
 
-
             if (lastPage.Text == "Feb21")
 
             {
@@ -92,6 +91,9 @@ namespace Feb21Testing.Pages
         public void EditTM(IWebDriver driver)
         {
 
+            driver.Navigate().GoToUrl("http://horse.industryconnect.io/TimeMaterial");
+            Thread.Sleep(1000);
+
             //identify Edit Button
 
             IWebElement gridEditButton = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[1]/td[5]/a[1]"));
@@ -104,10 +106,7 @@ namespace Feb21Testing.Pages
             edittypecodeButton.Click();
             Thread.Sleep(1500);
 
-            //IWebElement edittypecodeButton1 = driver.FindElement(By.Id("//*[@id='TimeMaterialEditForm']/div/div[1]/div/span[1]/span/span[1]"));
-            //edittypecodeButton1.Click();
-            //Thread.Sleep(1500);
-
+           
             //Identify Edit Code textbox
             IWebElement editcodeTxtbox = driver.FindElement(By.Id("Code"));
             editcodeTxtbox.SendKeys("");
@@ -150,6 +149,9 @@ namespace Feb21Testing.Pages
 
         public void DeleteTM(IWebDriver driver)
         {
+
+            driver.Navigate().GoToUrl("http://horse.industryconnect.io/TimeMaterial");
+            Thread.Sleep(1000);
 
             //identify Delete button
 
