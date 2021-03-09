@@ -1,4 +1,6 @@
-﻿using OpenQA.Selenium;
+﻿using Feb21Testing.Utilities;
+using NUnit.Framework;
+using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -16,7 +18,7 @@ namespace Feb21Testing.Pages
 
             IWebElement createnewButton = driver.FindElement(By.XPath("/html/body/div[4]/p/a"));
             createnewButton.Click();
-            Thread.Sleep(500);
+            Wait.ElementPresent(driver,"//*[@id='TimeMaterialEditForm']/div/div[1]/div/span[1]/span");
             //Enable TypeCode Button
 
             IWebElement typecodeMaButton = driver.FindElement(By.XPath("//*[@id='TimeMaterialEditForm']/div/div[1]/div/span[1]/span"));
@@ -71,18 +73,15 @@ namespace Feb21Testing.Pages
 
             //validation of last page/if record is created
 
-            var lastPage = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[1]"));
+            //option1
 
-            if (lastPage.Text == "Feb21")
+             Assert.That (driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[1]")).Text =="Feb21");
 
-            {
-                Console.WriteLine("Test passed, time record created");
-            }
+            //option2
 
-            else
-            {
-                Console.WriteLine("Test failed, time record failed");
-            }
+            
+
+            
 
 
 
