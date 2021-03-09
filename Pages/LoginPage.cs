@@ -23,16 +23,21 @@ namespace Feb21Testing.Pages
             {
 
                 // identify username textbox and input username
-
-                Wait.ElementPresent(driver, "UserName");
+                
+                Wait.IsElementPresentById(driver,"UserName");
                 IWebElement username = driver.FindElement(By.Id("UserName"));
                 username.SendKeys("hari");
 
+
+
+                Wait.IsElementPresentById(driver, "Password");
                 // identify password textbox and input password
                 IWebElement password = driver.FindElement(By.Id("Password"));
                 password.SendKeys("123123");
 
                 // identify login buton and click on the login button
+
+                Wait.IsElementPresentByXPath(driver, "//*[@id='loginForm']/form/div[3]/input[1]");
                 IWebElement loginButton = driver.FindElement(By.XPath("//*[@id='loginForm']/form/div[3]/input[1]"));
                 loginButton.Click();
 
